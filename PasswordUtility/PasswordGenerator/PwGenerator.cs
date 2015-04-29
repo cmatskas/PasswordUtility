@@ -17,15 +17,23 @@ namespace PasswordUtility.PasswordGenerator
 	/// </summary>
 	public static class PwGenerator
 	{
-		public static PwgError Generate(out ProtectedString psOut,
-			PwProfile pwProfile, byte[] pbUserEntropy,
-			CustomPwGeneratorPool pwAlgorithmPool)
-		{
-			Debug.Assert(pwProfile != null);
-			if(pwProfile == null) throw new ArgumentNullException("pwProfile");
+		public static ProtectedString Generate(
+            int passwordLength, 
+            bool useUpperCase = false, 
+            bool useDigits = false, 
+            bool useSpecialCharacters = false)
+	    {
+	        ProtectedString psOut;
+		    var pwCharSet = new PwCharSet(PwCharSet.LowerCase 
+                            + (useSpecialCharacters ? PwCharSet.SpecialChars : string.Empty)
+                            + (useUpperCase ? PwCharSet.UpperCase : string.Empty)
+                            + (useDigits ? PwCharSet.Digits : string.Empty));
+		    var pwProfile = new PwProfile {ExcludeLookAlike = true, Length = (uint)passwordLength, CharSet = pwCharSet};
 
-			var crs = CreateCryptoStream(pbUserEntropy);
-			var e = PwgError.Unknown;
+            Debug.Assert(pwProfile != null);
+		    
+			var crs = CreateCryptoStream(GetEntropyBytes());
+			var e = PwgError.Success;
 
 		    if (pwProfile.GeneratorType == PasswordGeneratorType.CharSet)
 		    {
@@ -35,19 +43,27 @@ namespace PasswordUtility.PasswordGenerator
 			{
 			    e = PatternBasedGenerator.Generate(out psOut, pwProfile, crs);
 			}
-			else if (pwProfile.GeneratorType == PasswordGeneratorType.Custom)
-			{
-			    e = GenerateCustom(out psOut, pwProfile, crs, pwAlgorithmPool);
-			}
 			else
 			{
 			    psOut = ProtectedString.Empty;
 			}
 
-			return e;
+		    if (e != PwgError.Success)
+		    {
+		        throw new Exception("Password generation failed");
+		    }
+
+			return psOut;
 		}
 
-		private static CryptoRandomStream CreateCryptoStream(byte[] pbAdditionalEntropy)
+	    private static byte[] GetEntropyBytes()
+	    {
+	        var bytes = new byte[PwCharSet.PrintableAsciiSpecial.Length*sizeof (char)];
+	        Buffer.BlockCopy(PwCharSet.PrintableAsciiSpecial.ToCharArray(), 0, bytes, 0, bytes.Length);
+	        return bytes;
+	    }
+
+	    private static CryptoRandomStream CreateCryptoStream(byte[] pbAdditionalEntropy)
 		{
 			byte[] pbKey = CryptoRandom.Instance.GetRandomBytes(256);
 
