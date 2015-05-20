@@ -1,7 +1,5 @@
 # PasswordUtility
-The Passowrd Utility is the library behind the PasswordUtility.com (currently resolving at 
-https://microsoft-apiappaa28b3b59bb44d2fb77d77f82f990685.azurewebsites.net)
-api service that allows anyone to either validate or generate new random passwords. The library is fairly simple in that it only 
+The Passowrd Utility is the library behind the [http://passwordutility.net](http://passwordutility.net) public api service that allows anyone to either validate or generate new random passwords. The library is fairly simple in that it only 
 has 2 important classes that you should care about:
 
 - `PwGenerator`
