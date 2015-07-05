@@ -1308,7 +1308,8 @@ namespace PasswordUtility
 				        continue;
 				    }
 
-					int iIndex = (caseSensitive ? stringToSplit.IndexOf(strSep) :
+					int iIndex = (caseSensitive 
+                        ? stringToSplit.IndexOf(strSep) :
 						stringToSplit.IndexOf(strSep, StrUtil.CaseIgnoreCmp));
 					if((iIndex >= 0) && (iIndex < minIndex))
 					{

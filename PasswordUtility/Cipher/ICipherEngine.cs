@@ -9,7 +9,7 @@ namespace PasswordUtility.Cipher
 	{
 		/// <summary>
 		/// UUID of the engine. If you want to write an engine/plugin,
-		/// please contact the KeePass team to obtain a new UUID.
+		/// please contact the team to obtain a new UUID.
 		/// </summary>
 		PwUuid CipherUuid
 		{

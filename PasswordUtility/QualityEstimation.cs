@@ -328,7 +328,7 @@ namespace PasswordUtility
 			FindRepetitions(vPasswordChars, vPatterns);
 			FindNumbers(vPasswordChars, vPatterns);
 			FindDiffSeqs(vPasswordChars, vPatterns);
-			// FindPopularPasswords(vPasswordChars, vPatterns);
+			FindPopularPasswords(vPasswordChars, vPatterns);
 
 			// Encoders must not be static, because the entropy estimation
 			// may run concurrently in multiple threads and the encoders are
