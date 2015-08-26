@@ -7,6 +7,8 @@
     <title>PasswordUtility.net</title>
     @Styles.Render("~/Content/css")
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 <body class="homepage">
 <div>
@@ -19,13 +21,27 @@
 @Scripts.Render("~/bundles/javascript")
 @RenderSection("scripts", required: false)
     <script>
-    $(document).ready(function () {
-        $('#btnValidate').on('click', function () {
-            var password = $('#ValidatePassword').value;
-            alert(password);
-        });
+        $(document).ready(function() {
+            $('#btnValidate').on('click', function() {
+                var password = $('#txtValidate').val();
+                var url = '/Home/Validate?password=' + password;
+                var jqxhr = $.ajax({
+                    method: "POST",
+                    url: url})
+                  .done(function (data) {
+                        var test = data;
+                      alert("success");
+                  })
+                  .fail(function (e, b, c, d) {
+                      alert("error");
+                  })
+                  .always(function () {
+                      alert("complete");
+                  });
+            });
 
-    })
+        })
     </script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 </body>
 </html>

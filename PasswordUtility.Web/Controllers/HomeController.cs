@@ -1,4 +1,10 @@
-﻿using PasswordUtility.Web.Models;
+﻿using System.Net;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Helpers;
+using System.Web.Http;
+using System.Web.Http.Results;
+using PasswordUtility.Web.Models;
 using System.Web.Mvc;
 
 namespace PasswordUtility.Web.Controllers
@@ -11,7 +17,7 @@ namespace PasswordUtility.Web.Controllers
             return View(new PasswordModel());
         }
 
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         public ActionResult Index(PasswordModel model)
         {
             if (string.IsNullOrEmpty(model.PasswordRequest))
@@ -22,6 +28,13 @@ namespace PasswordUtility.Web.Controllers
 
             model.PasswordResult = QualityEstimation.EstimatePasswordBits(model.PasswordRequest.ToCharArray()).ToString();
             return Index(model);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public JsonResult Validate(string password)
+        {
+            var result = QualityEstimation.EstimatePasswordBits(password.ToCharArray()).ToString();
+            return Json(result);
         }
 
     }

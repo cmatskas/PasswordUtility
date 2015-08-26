@@ -1,121 +1,57 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="page-wrapper">
+<div>
+    <div class="page-header page-header-custom">
+       <!-- <nav class="navbar navbar-default nav-bar-center">
+            <div class="container-fluid">
 
-    <!-- Header -->
-    <div id="header-wrapper" class="wrapper">
-        <div id="header">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
 
-            <!-- Logo -->
-            <div id="logo">
-                <h1>
-                    <a href="https://passwordutility.net">PasswordUtility.NET</a>
-                </h1>
-                <h3>Validate and generate passwords using open source tools</h3>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav center">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#intro-wrapper">Password Strength Validation</a></li>
+                        <li><a href="#password-generation">Password Generator</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Source Code</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav> -->
 
-            <!-- Nav -->
-            <nav id="nav">
-                <ul>
-                    <li class="current"><a href="#">Home</a></li>
-                    <li><a href="#intro-wrapper">Password Strength Validation</a></li>
-                    <li><a href="#password-generation">Password Generator</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Source Code</a></li>
-                </ul>
-            </nav>
-
-        </div>
+        <h1>
+            <a href="#">PasswordUtility.NET</a>
+        </h1>
+        <h3>Validate and generate passwords using open source tools</h3>
     </div>
-
-    <!-- Intro -->
-    <div id="intro-wrapper" class="wrapper style1">
-        <div class="title">Password Strength Validation</div>
-        <section id="intro" class="container">
-            <p class="style1">So in case you were wondering what this is all about ...</p>
-            <p class="style3">
-                Type any password into the field below to find out how secure it is.
-            </p>
-            <div class="container" style="width: 960px">
+    <div>
+        <div class="col-md-5 validation-header">&nbsp;</div>
+        <div class="col-md-2 text-center validation-header-title">Playground</div>
+        <div class="col-md-5 validation-header">&nbsp;</div>
+    </div>
+    <div style="height: 400px; background-color: #e97770;">
+        <div class="col-xs-6 col-md-6 col-md-offset-3 text-center">
+            <div style="padding-top: 30px; line-height: 40px;">
                 <div class="input-group">
-                    <input autocapitalize="off" autocorrect="off" class="form-control input-lg" data-val="true"
-                           data-val-maxlength="The password cannot exceed '255' characters."
-                           data-val-maxlength-max="255" id="ValidatePassword" maxlength="255"
-                           name="ValidatePassword" placeholder="Password to validate" spellcheck="false">
+                    <input type="text" id="txtValidate" class="form-control custom-text-box" placeholder="Enter password to validate...">
                     <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button" id="btnValidate">Validate</button>
+                        <button id="btnValidate" class="btn btn-primary custom-button" type="button">Check strength</button>
                     </span>
                 </div>
-                <div class="row text-center">
-                    <label id="lblValidationResult"></label>
-                </div>
+                <input type="checkbox" checked data-toggle="toggle">
             </div>
-        </section>
-    </div>
-
-    <!-- Main -->
-    <div id="password-generation" class="wrapper style2">
-        <div class="title">Password Generation</div>
-        <div id="main" class="container">
-            <!-- Features -->
-            <section id="features">
-                <header class="style1">
-                    <h2>Dolor consequat feugiat amet veroeros</h2>
-                    <p>Feugiat dolor nullam orci pretium phasellus justo</p>
-                </header>
-                <div class="feature-list">
-                    <div class="row">
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-comment">Mattis velit diam vulputate</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-refresh">Lorem ipsum dolor sit veroeros</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-picture-o">Pretium phasellus justo lorem</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-cog">Tempus sed pretium orci</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-wrench">Aliquam consequat et feugiat</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                        <div class="6u 12u(mobile)">
-                            <section>
-                                <h3 class="icon fa-check">Dolore laoreet aliquam mattis</h3>
-                                <p>Eget mattis at, laoreet vel et velit aliquam diam ante, aliquet sit amet vulputate. Eget mattis at, laoreet vel velit lorem.</p>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-                <ul class="actions actions-centered">
-                    <li><a href="#" class="button style1 big">Get Started</a></li>
-                    <li><a href="#" class="button style2 big">More Info</a></li>
-                </ul>
-            </section>
         </div>
     </div>
 </div>
+                
 
 
 

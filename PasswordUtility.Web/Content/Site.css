@@ -1,18 +1,88 @@
-﻿body {
-    padding-top: 50px;
+﻿html, body {
+    font-family: 'Play', sans-serif;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Play', sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.15em;
+}
+
+a {
+    color: #CCCCCC;
+     text-decoration: none;
+}
+
+ a:hover  {
+     color: #fff;
+     text-decoration: none;
+ }
+
+
+body {
     padding-bottom: 20px;
+    background-color: #484d55
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border: none;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.nav-bar-center{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    width: 60%;
+    background-color: #484d55;
 }
 
+.navbar-default .navbar-nav > li > a {
+    color: #CCCCCC;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+.page-header-custom {
+    background-color: #484d55;
+    text-align: center;
+    height: 200px;
+}
+
+.validation-header {
+    line-height: 40px;
+    background-color: #484d55;
+}
+
+.validation-header-title {
+    padding-top: 8px;
+    background-color: #e97770;
+}
+
+.custom-text-box {
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+}
+
+.custom-button {
+    font-size: 18px;
+}
