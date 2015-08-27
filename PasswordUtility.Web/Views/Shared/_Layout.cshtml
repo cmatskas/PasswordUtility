@@ -7,39 +7,103 @@
     <title>PasswordUtility.net</title>
     @Styles.Render("~/Content/css")
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <link href="//gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 <body class="homepage">
 <div>
     @RenderBody()
-    <hr/>
-    <footer>
+    <footer class="text-center">
         <p>&copy; @DateTime.Now.Year - SoftwareLounge Ltd</p>
     </footer>
 </div>
 @Scripts.Render("~/bundles/javascript")
 @RenderSection("scripts", required: false)
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
+            var that = this;
+            var passwordLength = 0;
+            var useLowercase = true;
+            var useUpperCase = false;
+            var useNumbers = false;
+            var useSpecialCharacters = false;
+
             $('#btnValidate').on('click', function() {
                 var password = $('#txtValidate').val();
                 var url = '/Home/Validate?password=' + password;
                 var jqxhr = $.ajax({
-                    method: "POST",
-                    url: url})
-                  .done(function (data) {
-                        var test = data;
-                      alert("success");
-                  })
-                  .fail(function (e, b, c, d) {
-                      alert("error");
-                  })
-                  .always(function () {
-                      alert("complete");
-                  });
+                        method: "POST",
+                        url: url
+                    })
+                    .done(function (passwordStrength) {
+                        $('.progress').show();
+                        $('.progress-bar').css('width', passwordStrength + '%').attr('aria-valuenow', passwordStrength);
+                        if(passwordStrength <= 30){
+                            $('.progress-bar').removeClass('progress-bar-warning').removeClass('progress-bar-success').addClass('progress-bar-danger');
+                            $('#lblPasswordStrength').text("[" + passwordStrength + "/100] This password is very weak! Try again...");
+                        } else if (passwordStrength > 30 && passwordStrength <= 60) {
+                            $('.progress-bar').removeClass('progress-bar-danger').removeClass('progress-bar-success').addClass('progress-bar-warning');
+                            $('#lblPasswordStrength').text("[" + passwordStrength + "/100] This password is OK! Think you can do better?");
+                        } else {
+                            $('.progress-bar').removeClass('progress-bar-danger').removeClass('progress-bar-warning').addClass('progress-bar-success');
+                            $('#lblPasswordStrength').text("[" + passwordStrength + "/100] Great choice! A nice, secure password - Congrats.");
+                        }
+                    })
+                    .fail(function(e, b, c, d) {
+                        $('.progress').hide();
+                    });
             });
 
+            $('#btnGenerate').on('click', function () {
+                var uppercase = that.useUpperCase === undefined ? false : that.useUpperCase;
+                var numeric = that.useNumeric === undefined ? false : that.useNumeric;
+                var specialchars = that.useSpecialCharacters === undefined ? false : that.useSpecialCharacters;
+                var url = '/Home/Generate?uppercase=' + uppercase + '&numeric=' + numeric + '&specialchars=' + specialchars +'&length='+ that.passwordLength;
+                var jqxhr = $.ajax({
+                    method: "POST",
+                    url: url
+                })
+                    .done(function (password) {
+                        $('#txtGenerate').val(password);
+                    })
+                    .fail(function (e, b, c, d) {
+                        $('#txtGenerate').val("");
+                    });
+            });
+
+            $('#txtValidate').on('input', function() {
+                var length = $(this).val().length;
+                if (length === 0) {
+                    $('.progress').hide();
+                    $('#lblPasswordStrength').text("");
+                }
+            });
+
+            $('#chkUppercase').change(function() {
+                that.useUpperCase = $(this).prop('checked');
+            });
+
+            $('#chkNumeric').change(function() {
+                that.useNumeric = $(this).prop('checked');
+            });
+
+            $('#chkSpecial').change(function() {
+                that.useSpecialCharacters = $(this).prop('checked');
+            });
+
+            $('#passwordLength').slider({
+                formatter: function (value) {
+                    that.passwordLength = value;
+                    return 'Password length: ' + value;
+                }
+            });
+
+            var client = new ZeroClipboard($("#btnCopy"));
+
+            client.on("copy", function (event) {
+                var clipboard = event.clipboardData;
+                clipboard.setData("text/plain", $('#txtGenerate').val());
+            });
         })
     </script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>

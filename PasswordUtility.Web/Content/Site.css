@@ -7,19 +7,19 @@
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Play', sans-serif;
-    text-transform: uppercase;
 }
 
 h1 {
     font-size: 1.8em;
+    text-transform: uppercase;
 }
 
 h2 {
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 
 h3 {
-    font-size: 1.15em;
+    font-size: 1.3em;
 }
 
 a {
@@ -32,25 +32,30 @@ a {
      text-decoration: none;
  }
 
-
 body {
     padding-bottom: 20px;
-    background-color: #484d55
+    background-color: #0CB269;
 }
 
+label {
+    display: block;
+    font-weight: 400;
+}
+
+.progress {
+    margin-bottom: 0;
+}
 .page-header {
-    padding-bottom: 9px;
-    margin: 40px 0 20px;
     border: none;
 }
 
-.nav-bar-center{
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: justify;
-    width: 60%;
-    background-color: #484d55;
+.navbar-inverse .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.panel-body {
+    background-color: #72575C;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -61,28 +66,49 @@ body {
     color: #fff;
 }
 
-.page-header-custom {
-    background-color: #484d55;
-    text-align: center;
-    height: 200px;
-}
-
-.validation-header {
-    line-height: 40px;
-    background-color: #484d55;
-}
-
-.validation-header-title {
-    padding-top: 8px;
-    background-color: #e97770;
-}
-
 .custom-text-box {
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 1.6em;
+    border: none;
+}
+
+.custom-text-box-standalone {
+    height: 60px;
+    -ms-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -ms-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -ms-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -ms-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 1.6em;
+    border: none;
 }
 
 .custom-button {
-    font-size: 18px;
+    font-size: 29px;
+    height: 60px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
+
+.btn-primary {
+    background-color: #B21A00
+}
+
+.btn-primary:hover {
+    background-color: #FF4222;
+}
+
+.btn-primary:active {
+    background-color: #FF4222;
+}
+
+.form-group-custom {
+    margin-right: 20px;
+}
+
+
