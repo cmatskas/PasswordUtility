@@ -2,111 +2,95 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <i class="fa fa-unlock-alt"></i>
-            </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#pwdValidation">Password Strength Calculator</a></li>
-                <li><a href="#pwdCreation">Password Generator</a></li>
-                <li><a href="https://cmatskas.com/password-validation-and-creation-using-a-public-api/">API</a></li>
-                <li><a href="https://github.com/cmatskas/PasswordUtility">Source Code</a></li>
-                <li><a href="https://passwordutility.net/swagger">API Playground</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>                <span class="icon-bar"></span>                <span class="icon-bar"></span>                <span class="icon-bar"></span></button>            <a href="#" class="navbar-brand"><i class="fa fa-unlock-alt"></i></a>
+      </div>        
+      <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>                
+          <li><a href="#pwdValidation">Password Strength Calculator</a></li>                
+          <li><a href="#pwdCreation">Password Generator</a></li>                
+          <li><a href="https://cmatskas.com/password-validation-and-creation-using-a-public-api/">API</a></li>                
+          <li><a href="https://github.com/cmatskas/PasswordUtility">Source Code</a></li>                
+          <li><a href="https://passwordutility.net/swagger">API Playground</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div>
     <div class="page-header text-center">
-        <h1>
-            <a href="#">PasswordUtility.NET</a>
-        </h1>
-        <h3>Validate and generate passwords using open source tools</h3>
+      <h1><a href="#">PasswordUtility.NET</a></h1>        
+      <h3>Validate and generate passwords using open source tools</h3>
     </div>
-    <div style="height: 400px;" id="pwdValidation">
-        <div style="background-color: #0ED47D;">
-            <div class="col-md-12 text-center" style="height: 250px; padding-top: 15px;">
-                <h3>Password Strength Calculator</h3>
-                <div style="line-height: 80px; width: 90%; padding-left:15%">
-                    <div class="input-group">
-                        <input type="text" id="txtValidate" class="form-control custom-text-box" placeholder="Enter password to validate..."
-                               autocapitalize="off" autocorrect="off" data-val="true"
-                               data-val-maxlength="The field Password must be a string with a maximum length of &#39;255&#39;."
-                               data-val-maxlength-max="255" data-val-minlength="The field Password must be a string with a minimum length of &#39;3&#39;."
-                               data-val-minlength-min="3" maxlength="255" spellcheck="false"/>
-                        <span class="input-group-btn">
-                            <button id="btnValidate" class="btn btn-primary custom-button" type="button">Check strength</button>
-                        </span>
-                    </div>
-                    <div class="progress" style="display: none">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
-                    </div>
-                    <label id="lblPasswordStrength"></label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="height: 500px; background-color: #72575C" id="pwdCreation">
-        <div class="col-md-12 text-center" style="height: 250px; padding-top: 15px;">
-            <h3>Password Generator</h3>
-            <div class="col-md-6 text-right">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="form-group form-group-custom">
-                            <label class="form-horizontal">
-                                Use lowercase: 
-                                <input type="checkbox" disabled checked data-toggle="toggle" id="chkLowercase">
-                            </label>
-                        </div>
-                        <div class="form-group form-group-custom">
-                            <label class="form-horizontal">
-                                Use uppercase: 
-                                <input type="checkbox" data-toggle="toggle" id="chkUppercase">
-                            </label>
-                        </div>
-                        <div class="form-group form-group-custom">
-                            <label class="form-horizontal">
-                                Use numbers: 
-                                <input type="checkbox" data-toggle="toggle" id="chkNumeric">
-                            </label>
-                        </div>
-                        <div class="form-group form-group-custom">
-                            <label class="form-horizontal">
-                                Use special characters: 
-                                <input type="checkbox" data-toggle="toggle" id="chkSpecial">
-                            </label>
-                        </div>
-                        <div class="form-group form-group-custom">
-                            Password Length: <strong>8</strong> &nbsp;
-                            <input id="passwordLength" data-slider-id='ex1Slider' type="text" data-slider-min="8" data-slider-max="40" data-slider-step="2" data-slider-value="10"/> &nbsp;
-                            <strong>40</strong>
-                        </div>
-                        <button id="btnGenerate" class="btn btn-primary" type="button">Generate password</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 text-left">
+    <section class="row row-padding">
+      <div class="col-sm-6">
+        <div id="pwdValidation" style="height: 400px;">
+          <div>
+            <div style="height: 250px; padding-top: 15px;" class="col-md-12 text-center">
+              <h2>Password Strength Calculator</h2>                
+              <div style="width: 90%; padding-left:15%">
                 <div class="input-group">
-                    <input type="text" id="txtGenerate" class="form-control custom-text-box"
-                           autocapitalize="off" autocorrect="off" data-val="true" spellcheck="false"/>
-                    <span class="input-group-btn">
-                        <button id="btnCopy" class="btn btn-primary custom-button" type="button">Copy</button>
-                    </span>
-                </div>
+                  <input id="txtValidate" type="text" placeholder="Enter password to validate..." autocapitalize="off" autocorrect="off" data-val="true" data-val-maxlength="The field Password must be a string with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Password must be a string with a minimum length of '3'." data-val-minlength-min="3" maxlength="255" spellcheck="false" class="form-control custom-text-box"/>                        <span class="input-group-btn">
+                    <button id="btnValidate" type="button" class="btn btn-primary custom-button function-button">Check strength</button></span>
+                </div>                    
+                <div style="display: none; margin-top: 15px;" class="progress">
+                  <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;" class="progress-bar"></div>
+                </div>                    
+                <label id="lblPasswordStrength" style="margin-top: 30px;"></label>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>    
+      <div id="pwdCreation" style="height: 500px;" class="col-sm-6">
+        <div style="height: 250px; padding-top: 15px;" class="text-center">
+          <h2>Password Generator</h2>            
+          <div class="col-md-6 text-right">
+            <div class="panel panel-default">
+              <div class="form-group form-group-custom">
+                <label class="form-horizontal">Use lowercase: 
+                  <input id="chkLowercase" type="checkbox" disabled="" checked="" data-toggle="toggle"/>
+                </label>
+              </div>                        
+              <div class="form-group form-group-custom">
+                <label class="form-horizontal">Use uppercase: 
+                  <input id="chkUppercase" type="checkbox" data-toggle="toggle"/>
+                </label>
+              </div>                        
+              <div class="form-group form-group-custom">
+                <label class="form-horizontal">Use numbers: 
+                  <input id="chkNumeric" type="checkbox" data-toggle="toggle"/>
+                </label>
+              </div>                        
+              <div class="form-group form-group-custom">
+                <label class="form-horizontal">Use special characters: 
+                  <input id="chkSpecial" type="checkbox" data-toggle="toggle"/>
+                </label>
+              </div>                        
+              <div class="form-group form-group-custom">Password Length: <strong>8</strong> &nbsp;
+                                            
+                <input id="passwordLength" data-slider-id="ex1Slider" type="text" data-slider-min="8" data-slider-max="40" data-slider-step="2" data-slider-value="10"/> &nbsp;
+                                            <strong>40</strong>
+              </div>                        
+              <button id="btnGenerate" type="button" class="btn btn-primary function-button">Generate password</button>
+            </div>
+          </div>            
+          <div class="col-md-6 text-left">
+            <div class="input-group">
+              <input id="txtGenerate" type="text" autocapitalize="off" autocorrect="off" data-val="true" spellcheck="false" class="form-control custom-text-box"/>                    <span class="input-group-btn">
+                <button id="btnCopy" type="button" class="btn btn-primary custom-button function-button">Copy</button></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+    <footer class="text-center footer">
+      <p>&copy; 2015 - <a href="http://softwarelounge.co.uk">SoftwareLounge Ltd</a></p>
+    </footer>
+  </div>
 </div>              
 
 
