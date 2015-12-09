@@ -1,114 +1,179 @@
-﻿html, body {
-    font-family: 'Play', sans-serif;
-    color: #fff;
-    font-size: 18px;
+html, body {
+  font-family: Play, sans-serif;
+  color: #fff;
+  font-size: 18px;
 }
 
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Play', sans-serif;
+body {
+  padding-bottom: 20px;
+  background-color: #000;
 }
 
 h1 {
-    font-size: 1.8em;
-    text-transform: uppercase;
+  font-family: Play, sans-serif;
+  font-size: 3.1em;
+  text-transform: uppercase;
 }
 
 h2 {
-    font-size: 1.5em;
+  font-family: Play, sans-serif;
+  font-size: 2em;
+  padding-bottom: 30px;
 }
 
 h3 {
-    font-size: 1.3em;
+  font-family: Play, sans-serif;
+  font-size: 1.3em;
+}
+
+h4 {
+  font-family: Play, sans-serif;
+}
+
+h5 {
+  font-family: Play, sans-serif;
+}
+
+h6 {
+  font-family: Play, sans-serif;
+}
+
+.h1 {
+  font-family: Play, sans-serif;
+}
+
+.h2 {
+  font-family: Play, sans-serif;
+}
+
+.h3 {
+  font-family: Play, sans-serif;
+}
+
+.h4 {
+  font-family: Play, sans-serif;
+}
+
+.h5 {
+  font-family: Play, sans-serif;
+}
+
+.h6 {
+  font-family: Play, sans-serif;
 }
 
 a {
-    color: #CCCCCC;
-     text-decoration: none;
+  color: #cccccc;
+  text-decoration: none;
 }
-
- a:hover  {
-     color: #fff;
-     text-decoration: none;
- }
-
-body {
-    padding-bottom: 20px;
-    background-color: #0CB269;
+a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 label {
-    display: block;
-    font-weight: 400;
+  display: block;
+  font-weight: 400;
+  font-family: Open Sans, sans-serif;
+  font-size: 1em;
 }
 
 .progress {
-    margin-bottom: 0;
-}
-.page-header {
-    border: none;
+  margin-bottom: 0;
 }
 
+.page-header {
+  border: none;
+  padding: 30px;
+  color: #fff;
+  background: repeating-linear-gradient(-45deg, #000, #000 10px, #111111 10px, #111111 20px);
+  margin-top: 0;
+}
+
+.navbar-inverse {
+  margin-bottom: 2px;
+}
 .navbar-inverse .container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .panel-body {
-    background-color: #72575C;
+  border: 0 solid #000;
+  border-left: 1px solid #fff;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: #CCCCCC;
-}
-
-.navbar-default .navbar-nav > li > a:hover {
-    color: #fff;
+.panel {
+  background-color: #000;
+  border: 0 solid #000;
 }
 
 .custom-text-box {
-    height: 60px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    font-size: 1.6em;
-    border: none;
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 1.2em;
+  border: none;
 }
 
 .custom-text-box-standalone {
-    height: 60px;
-    -ms-border-top-left-radius: 10px;
-    border-top-left-radius: 10px;
-    -ms-border-bottom-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -ms-border-top-right-radius: 10px;
-    border-top-right-radius: 10px;
-    -ms-border-bottom-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-size: 1.6em;
-    border: none;
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 1.6em;
+  border: none;
 }
 
 .custom-button {
-    font-size: 29px;
-    height: 60px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+  height: 60px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.function-button {
+  font-size: 20px;
 }
 
 .btn-primary {
-    background-color: #B21A00
+  background-color: #b21a00;
 }
-
 .btn-primary:hover {
-    background-color: #FF4222;
+  background-color: #ff4222;
 }
-
 .btn-primary:active {
-    background-color: #FF4222;
+  background-color: #ff4222;
 }
 
 .form-group-custom {
-    margin-right: 20px;
+  margin-right: 20px;
+  font-size: 1.2em;
+  font-family: Open Sans, sans-serif;
+  font-size: 1em;
 }
 
+.footer {
+  padding-top: 30px;
+}
 
+input {
+  font-family: Open Sans, sans-serif;
+  font-size: 1em;
+}
+
+btn {
+  font-family: Open Sans, sans-serif;
+  font-size: 1em;
+}
+
+.tooltip-inner {
+  background-color: #b21a00;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #cccccc;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+}
